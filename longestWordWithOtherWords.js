@@ -45,7 +45,7 @@ function longestWord(array) {
 longestWord(list);
 
 /*
-Time complexity for this algorithm is O(n^2) exponential because for element in i we are looping through entirety of j. Thus producing a speed of O of exponention time.
+Time complexity for this algorithm is O(n^2) exponential because for every element in i we are looping through the entirety of j. Thus producing a speed of O of exponention time.
 */
 
 
