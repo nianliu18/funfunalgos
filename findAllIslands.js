@@ -49,6 +49,7 @@ function countIslands(grid) {
 
         //while your queue has not empty, we want to shift the first out. (queue FIFO)
         while (queue.length > 0) {
+          /*we're constantly shifting and ridding the first element in the queue and as we do that we check for 8 directions as well as referencing back queue.*/
           const island = queue.shift();
           console.log(island, 'this is island')
           //set v as row and h as column
@@ -63,6 +64,7 @@ function countIslands(grid) {
 
           //last forLoop to go through all possible directions and check to see if they exist in catch if not store them in queue.
           for (let k = 0; k < 8; k++) {
+            //where cells[k] is true or specific coordinate doesnt exist in our cache we'll store in our queue.
             if (cells[k] === 1 && !cache[JSON.stringify(coords[k])]) {
               cache[JSON.stringify(coords[k])] = true;
               queue.push(coords[k]);
