@@ -38,11 +38,18 @@ reverseInteger(num);
 //this is another solution that took similar routes but solved with Math.abs to counter the negatives, and checks for zeros as well.
 
 const reverse = x => {
+  //store negative in this array with negative.push(array.shift());
     const negative = []
-    const array = [...(x.toString())]
+    // const array = [...(x.toString())]
+    const array = x.toString().split('');
+    console.log(array, 'array with spread and toString')
         if(array.includes('-')){
+          //deletes the first element in the array and returns the element removed.
         negative.push(array.shift())
+        console.log('negative with shift', negative)
       }
+      console.log('negative', negative)
+      console.log('array', array.reverse())
       const reversed = parseInt([...negative, ...array.reverse()].join(''))
       if (Math.abs(reversed) > Math.pow(2, 31) - 1) {
         return 0
