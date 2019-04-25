@@ -42,8 +42,34 @@ twoSums(nums, target);
 //space complexity O(n)
 
 
+// Slight update with the same time complexity
+/*
+Looking back at this code i realize that i only generate one result that sums up to a target number but 
+i didnt account for multiple numbers adding up to target. for instance an array with let nums = [3, 8, 11, 2, 15, 6, 4, 7];
 
+To solve this new scenario with more than one pair adding up to target i just simply included a results array and pushed into it whenever numMap object has a key equal to the value as we iterate through the array. Works and i get two pairs of indices now. 
+// Answer: [0, 5] [3,7]
+*/
 
+function twoSums(nums, target) {
+  let numMap = {};
+  let results = [];
+  for(let i = 0; i < nums.length; i++) {
+    let val = target - nums[i];
+    numMap[nums[i]] = i; 
+    // console.log('here')
+    if(numMap[val] > -1) {
+      console.log(numMap[nums[i]])
+      results.push([numMap[val], i])
+    } else {
+      numMap[nums[i]] = i;
+    }
+  }
+  console.log(numMap)
+  return results;
+}
+
+twoSums(nums, target);
 
 
 
